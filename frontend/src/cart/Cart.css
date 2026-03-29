@@ -1,0 +1,135 @@
+/* src/cart/Cart.css */
+
+/* Animación de flotación suave */
+@keyframes float-subtle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes slideInUpQuick {
+    from {
+        transform: translateY(50px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* El botón flotante móvil - Asegurado sobre todo */
+.cart-floating-mobile {
+    position: fixed !important;
+    bottom: 25px !important;
+    right: 20px !important;
+    z-index: 2147483647 !important;
+    width: 64px !important;
+    height: 64px !important;
+    background-color: #f5522a !important;
+    border-radius: 9999px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow:
+        0 4px 15px rgba(245, 82, 42, 0.4),
+        0 10px 40px rgba(0, 0, 0, 0.15) !important;
+    border: 3px solid white !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    animation: slideInUpQuick 0.4s ease-out, float-subtle 3s ease-in-out infinite !important;
+    pointer-events: auto !important;
+}
+
+.cart-floating-mobile:active {
+    transform: scale(0.9) !important;
+}
+
+.cart-floating-mobile svg {
+    width: 30px !important;
+    height: 30px !important;
+    color: white !important;
+}
+
+/* Indicador de cantidad superior (Badge) */
+.cart-mobile-badge {
+    position: absolute !important;
+    top: -4px !important;
+    right: -4px !important;
+    background-color: white !important;
+    color: #f5522a !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 9999px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #f5522a !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Glassmorphism for Navbar scrolled */
+.nav-floating {
+    margin: 12px auto !important;
+    border-radius: 20px !important;
+    width: 94% !important;
+    max-width: 1200px !important;
+    backdrop-filter: blur(12px) !important;
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* En móviles, eliminamos los bordes flotantes para evitar el "espacio blanco" lateral */
+@media (max-width: 768px) {
+    .nav-floating {
+        width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        top: 0 !important;
+    }
+}
+
+/* Optimizaciones generales del carrito */
+.cart-drawer-overlay {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.cart-drawer-container {
+    animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .cart-drawer-container {
+        width: 100% !important;
+    }
+}
